@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'',include('authen.urls')),
     url(r'',include('forum.urls')),
+    #url(r'',include('recommend.urls')),
 ]
