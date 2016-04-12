@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block main_content %}
+    {% for music in recommend_music %}
+    {{ music }}
+    {% endfor %}
+
+{% endblock %}
