@@ -47,11 +47,21 @@ upvote 和 downvote 机制
 ####安装方法:
 
 1. 对 *nix 系统，请直接执行 `source venv/bin/activate` 以获得对应的 Python 环境
-   对 Windows 系统，在 virtualenv 安装好虚拟环境之后用 `easy_install` 来安装 requirements.txt 中的依赖
-2. 在 `settings.py` 中设置好 mysql 的端口、用户名、密码(demo 中以 root:mysql 来作为例子),并执行
+2. 执行以下命令来安装依赖(适用于 Ubuntu 14.04 LTS)：
+```
+sudo apt-get install python-dev,mysqlclient-dev,python-mysqldb,libjpeg-dev
+
+```
+
+3. 在 `settings.py` 中设置好 mysql 的端口、用户名、密码(demo 中以 root:mysql 来作为例子),并执行
 ```
 create database cortexForum CHARACTER SET utf8 COLLATE utf8_bin;
 ```
 创建数据库并设置为 utf-8 编码格式以支持中文
-3. 导入数据库
+3. 执行
+```
+python manage.py makemigrations
+
+python manage.py migrate
+```
 4. 执行`python manage.py runserver`运行
