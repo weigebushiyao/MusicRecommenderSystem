@@ -3,6 +3,7 @@ from __future__ import division
 from operator import itemgetter
 import math
 import os
+import base64
 
 current_path = os.path.dirname(__file__)  # get current directory
 file_path = os.path.join(current_path, 'base.txt')
@@ -38,8 +39,8 @@ class ItemBasedCF(object):
             for line in f:
                 if not line:
                     continue
-                userID, movieID, rating, _ = line.split()
-                content.setdefault(int(userID), {})[int(movieID)] = int(rating)
+                userID, movieID, rating = line.split()
+                content.setdefault(int(userID), {})[movieID] = int(rating)
 
         return content
 
@@ -103,7 +104,12 @@ class ItemBasedCF(object):
         res = self.resset
 
     def re(self):
-        self.result=self.resset.get(1)
+        self.result = self.resset.get(2)
+        target=[]
+        for temp in self.result:
+            target.append(base64.b64decode(temp))
+        self.result=target
+
 
     def recall(self):
         # 计算召回率
