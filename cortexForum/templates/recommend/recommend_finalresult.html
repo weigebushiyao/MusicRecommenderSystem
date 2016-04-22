@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block main_content %}
+{% for music in recommend_music %}
+
+    {{ music }}
+{% endfor %}
+
+    <hr/>
+
+    你是第{{ count }}名参与测试的人
+
+
+
+<form method="POST" role="form">
+{% csrf_token %}
+    您对这次的推荐结果是否满意：<br>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="1">一星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="2">二星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="3">三星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="4">四星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="5">五星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="0">完全不符合期望</label>
+
+    <hr/>
+
+    您对这次的推荐结果新鲜度是否满意:<br>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="1">一星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="2">二星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="3">三星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="4">四星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="5">五星</label>
+    <label class="radio-inline"><input type="radio" name="sitisfy" value="0">完全不符合期望</label>
+
+<br>
+<button type="submit" class="btn btn-success" value="登陆">
+
+    提交
+
+</button>
+</form>
+{% endblock %}
