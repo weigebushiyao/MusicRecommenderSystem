@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'forum',
     'authen',
+    'recommend',
     'crispy_forms',
 ]
 

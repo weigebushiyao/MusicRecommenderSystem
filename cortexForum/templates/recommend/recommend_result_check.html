@@ -1,0 +1,256 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block files %}
+<script type="text/javascript" src="{% static 'js/echarts.common.min.js' %}"></script>
+{% endblock %}
+
+{% block main_content %}
+
+    满意度{{ satisfy_rate }}
+    新鲜度{{ fresh_rate }}
+
+    {% for da in datetime %}
+        <input type="hidden" id="myVar_{{ forloop.counter0 }}" name="variable" value="{{ da }}">
+    {% endfor %}
+
+    {% for sr in satisfy_rate_all %}
+        <input type="hidden" id="sr_{{ forloop.counter0 }}" name="variable" value="{{ sr }}">
+    {% endfor %}
+
+    {% for fr in fresh_rate_all %}
+        <input type="hidden" id="fr_{{ forloop.counter0 }}" name="variable" value="{{ fr }}">
+    {% endfor %}
+
+
+    <br><br>
+    <div id="main" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var d=[];
+
+        {% for i in len %}
+
+        d.push(document.getElementById("myVar_{{ i }}").value);
+
+        {% endfor %}
+
+
+
+
+        var s_rate=[];
+        {% for i in len %}
+
+        s_rate.push(parseInt(document.getElementById("sr_{{ i }}").value));
+
+        {% endfor %}
+
+
+        var f_rate=[]
+        {% for i in len %}
+
+            f_rate.push(parseInt(document.getElementById("fr_{{ i }}").value));
+        {% endfor %}
+        /*
+
+        */
+        //d=[1];
+
+
+        // 指定图表的配置项和数据
+        var option1 = {
+    title: {
+        text: '推荐效果展示'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['满意度','新鲜度']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataZoom: {},
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        data: d
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+            formatter: '{value}'
+        }
+    },
+    series: [
+        {
+            name:'满意度',
+            type:'line',
+            data:s_rate,
+            //data:[11, 11, 15, 13, 12, 13, 10],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'新鲜度',
+            type:'line',
+            data:f_rate,
+            markPoint: {
+                data: [
+                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        }
+    ]
+};
+
+
+
+
+
+myChart.setOption(option1);
+    </script>
+
+<div id="main1" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        var myChart1 = echarts.init(document.getElementById('main1'));
+      option2 = {
+    title : {
+        text: '推荐结果估算：满意度',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['<2','3','4','5']
+    },
+    series : [
+        {
+            name: '满意度查看',
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:{{ value2 }}, name:'<2'},
+                {value:{{ value3 }}, name:'3'},
+                {value:{{ value4 }}, name:'4'},
+                {value:{{ value5 }}, name:'5'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+    myChart1.setOption(option2);
+    </script>
+
+
+
+    <div id="main2" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        var myChart2 = echarts.init(document.getElementById('main2'));
+
+        option3 = {
+    backgroundColor: '#2c343c',
+
+    title: {
+        text: '访问来源',
+        left: 'center',
+        top: 20,
+        textStyle: {
+            color: '#ccc'
+        }
+    },
+
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+
+    visualMap: {
+        show: false,
+        min: 80,
+        max: 600,
+        inRange: {
+            colorLightness: [0, 1]
+        }
+    },
+    series : [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '50%'],
+            data:[
+                {value:{{ value6 }}, name:'一度'},
+                {value:{{ value7 }}, name:'二度'},
+                {value:{{ value8 }}, name:'闷声发大财'}
+            ].sort(function (a, b) { return a.value - b.value}),
+            roseType: 'angle',
+            label: {
+                normal: {
+                    textStyle: {
+                        color: 'rgba(255, 255, 255, 0.3)'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    lineStyle: {
+                        color: 'rgba(255, 255, 255, 0.3)'
+                    },
+                    smooth: 0.2,
+                    length: 10,
+                    length2: 20
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#c23531',
+                    shadowBlur: 200,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+    myChart2.setOption(option3);
+    </script>
+{% endblock %}

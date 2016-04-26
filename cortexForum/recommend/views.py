@@ -15,6 +15,8 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 
+from .models import Recommend
+
 '''
 
 '''
@@ -22,7 +24,78 @@ res = []
 sim = []
 url_title={}
 
+result={}
+check_result={}
+
+user_graph_recommend={}
+type_recommend={}
+
 count=1335
+know_way=1
+
+like_70={
+    '浮夸':'http://music.163.com/#/song?id=64886',
+    '发誓':'http://music.163.com/#/song?id=331324',
+    '文字流泪':'http://music.163.com/#/song?id=5243324',
+    '最佳损友':'http://music.163.com/#/song?id=65800',
+    '透明人间':'http://music.163.com/#/song?id=279108',
+    '听到的神话':'http://music.163.com/#/song?id=279111',
+    '谁可改变':'http://music.163.com/#/song?id=152266',
+    '人来人往':'http://music.163.com/#/song?id=66378',
+    '今生今世':'http://music.163.com/#/song?id=26620788',
+    '海阔天空':'http://music.163.com/#/song?id=347230',
+    '我只在乎你-邓丽君':'http://music.163.com/#/song?id=229010',
+    '何日君再来-邓丽君':'http://music.163.com/#/song?id=226156',
+    '但愿人长久-邓丽君':'http://music.163.com/#/song?id=225636',
+}
+
+
+
+like_80={
+    '曲终人散-张宇':'http://music.163.com/#/song?id=190241',
+    '趁早-张惠妹':'http://music.163.com/#/song?id=326997',
+    '老情歌-李健':'http://music.163.com/#/song?id=5250148',
+    '祝你一路顺风-吴奇隆':'http://music.163.com/#/song?id=5232855d',
+    '往事随风-齐秦':'http://music.163.com/#/song?id=142580',
+    '月亮代表我的心':'http://music.163.com/#/song?id=5264848',
+    '上海滩':'http://music.163.com/#/song?id=111106',
+    '爱你一万年':'http://music.163.com/#/song?id=25959710',
+    '等待——汉武大帝主题曲':'http://music.163.com/#/song?id=4873688',
+    '男儿当自强':'http://music.163.com/#/song?id=92428',
+}
+
+like_90={
+    '庐州月':'http://music.163.com/#/song?id=167850',
+    '清明雨上':'http://music.163.com/#/song?id=167882',
+    '断桥残雪':'http://music.163.com/#/song?id=167937',
+    '你若成风':'http://music.163.com/#/song?id=5299987',
+    '七里香':'http://music.163.com/#/song?id=186001',
+    '烟花易冷':'http://music.163.com/#/song?id=185668',
+    '青花瓷':'http://music.163.com/#/song?id=185811',
+    '蒲公英的约定':'http://music.163.com/#/song?id=185815',
+    '黑色毛衣':'http://music.163.com/#/song?id=185908',
+    '夜的第七章':'http://music.163.com/#/song?id=185878',
+    '千里之外':'http://music.163.com/#/song?id=185880',
+    '兰亭序':'http://music.163.com/#/song?id=185701',
+}
+
+like_00={
+    '青春修炼手册':'http://music.163.com/#/song?id=28838718',
+    '大梦想家':'http://music.163.com/#/song?id=33894380',
+    '少年说':'http://music.163.com/#/song?id=35040843',
+    '星空物语-TFBoys':'http://music.163.com/#/song?id=29716009',
+    'IF-YOU BigBang':'http://music.163.com/#/song?id=32922450',
+    'BAE BAR Bigbang':'http://music.163.com/#/song?id=31789299',
+    'MAKE LOVE':'http://music.163.com/#/song?id=5366472',
+    '다시 너를 (Liv)':'http://music.163.com/#/song?id=409646491',
+}
+
+
+
+
+
+
+
 # 维护一个用 dict 表示的 相似矩阵
 class ItemBasedCF(object):
     def __init__(self, trainFilename):
@@ -150,7 +223,36 @@ def itemRecommend(request):
         'test':test,
     }
     if request.method=='POST':
-        val1,val2,val3=request.POST.get('1'),request.POST.get('2'),request.POST.get('3')
+        val1,val2,val3=request.POST.get('1',-1),request.POST.get('2',-1),request.POST.get('3',-1)
+        val4,val5,val6=request.POST.get('4',-1),request.POST.get('5',-1),request.POST.get('6',-1)
+        val7,val8,val9=request.POST.get('7',-1),request.POST.get('8',-1),request.POST.get('9',-1)
+        val10=request.POST.get('10',-1)
+
+        gender=int(request.POST.get('gender',0))
+        birth_date=int(request.POST.get('birth_date',0))
+        print 'gender{}'.format(gender)
+        print 'birth_date{}'.format(birth_date)
+
+
+        global user_graph_recommend
+        if gender==0 or birth_date==0:
+            user_graph_recommend={}
+        elif  birth_date==2:
+            #global like_80
+            user_graph_recommend=like_70
+        elif  birth_date==3:
+            user_graph_recommend=like_80
+        elif birth_date==4:
+            user_graph_recommend=like_90
+        elif gender==1 and birth_date==5:
+            user_graph_recommend=like_90
+        elif gender==2 and birth_date==5:
+            user_graph_recommend=like_90
+
+        global know_way
+        know_way=request.POST.get('know_way',-1)
+
+
         global count
         count+=1
         userid=count
@@ -173,18 +275,53 @@ def itemRecommend(request):
         itemcf.re()
         global count
         test=[12,3,4,5]
+        global result
         result={
             'recommend_music':itemcf.result,
             'count':count,
             'test':test,
+            'user_graph_recommend':user_graph_recommend
         }
-        return render(request,'recommend/recommend_finalresult.html',result)
+        return HttpResponseRedirect(reverse('recommend_result'))
+        #return render(request,'recommend/recommend_finalresult.html',result)
 
     return render(request, 'recommend/recommend_result.html', context)
 
 def recommend_result(request):
 
-    if request.method=='POST':
-        pass  # 在这里的部分怎样写比较合适尼？
 
+    # 在这里的部分怎样写比较合适尼？
+    print 123
+    if request.method=='POST':
+        satisfy_rate=request.POST.get('satisfy_rate')
+        fresh_rate=request.POST.get('fresh_rate')
+        recommend_check=Recommend(
+            know_way=know_way,
+            satisfy_rate=satisfy_rate,
+            fresh_rate=fresh_rate
+        )
+        recommend_check.save()
+        global check_result
+        check_result={
+                'fresh_rate':fresh_rate,
+                'satisfy_rate_result':satisfy_rate,
+                'count':Recommend.objects.count(),
+                'datetime':Recommend.objects.values_list('pub_date').all(),
+                'len':[i for i in xrange(Recommend.objects.values_list('pub_date').count())],
+                'satisfy_rate_all':Recommend.objects.values_list('satisfy_rate',flat=True).all(),
+                'fresh_rate_all':Recommend.objects.values_list('fresh_rate',flat=True).all(),
+                'value2':Recommend.objects.filter(satisfy_rate__lte=2).count(),
+                'value3':Recommend.objects.filter(satisfy_rate=3).count(),
+                'value4':Recommend.objects.filter(satisfy_rate=4).count(),
+                'value5':Recommend.objects.filter(satisfy_rate=5).count(),
+                'value6':Recommend.objects.filter(know_way=1).count(),
+                'value7':Recommend.objects.filter(know_way=2).count(),
+                'value8':Recommend.objects.filter(know_way=3).count(),
+        }
+        return HttpResponseRedirect(reverse('recommend_result_check'))
     return render(request,'recommend/recommend_finalresult.html',result)
+
+def recommend_result_check(request):
+
+
+    return render(request,'recommend/recommend_result_check.html',check_result)
