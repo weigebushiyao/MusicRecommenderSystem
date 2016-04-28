@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3bee46fe-2ae4-48fa-971b-9845f3d62f84" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cortexForum/forum/urls.py" afterPath="$PROJECT_DIR$/cortexForum/forum/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cortexForum/recommend/base.txt" afterPath="$PROJECT_DIR$/cortexForum/recommend/base.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cortexForum/recommend/views.py" afterPath="$PROJECT_DIR$/cortexForum/recommend/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cortexForum/templates/base.html" afterPath="$PROJECT_DIR$/cortexForum/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cortexForum/templates/forum/wiki.html" afterPath="$PROJECT_DIR$/cortexForum/templates/forum/wiki.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cortexForum/templates/gitbook/general/index.html" afterPath="$PROJECT_DIR$/cortexForum/templates/gitbook/general/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cortexForum/templates/recommend/recommend_finalresult.html" afterPath="$PROJECT_DIR$/cortexForum/templates/recommend/recommend_finalresult.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cortexForum/templates/recommend/recommend_result.html" afterPath="$PROJECT_DIR$/cortexForum/templates/recommend/recommend_result.html" />
     </list>
     <ignored path="cortexForum.iws" />
@@ -35,16 +30,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cortexForum/forum/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cortexForum/authen/views.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,9 +43,24 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cortexForum/forum/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-9.931034">
               <caret line="234" column="10" selection-start-line="234" selection-start-column="8" selection-end-line="234" selection-end-column="10" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cortexForum/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3315508">
+              <caret line="133" column="30" selection-start-line="133" selection-start-column="25" selection-end-line="133" selection-end-column="30" />
+              <folding>
+                <element signature="n#if#0;n#!!top" expanded="false" />
+                <element signature="n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#ul#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,7 +68,7 @@
       <file leaf-file-name="wiki.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cortexForum/templates/forum/wiki.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.592592">
+            <state vertical-scroll-proportion="0.0">
               <caret line="203" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
               <folding />
             </state>
@@ -78,58 +78,58 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cortexForum/cortexForum/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.034483">
+            <state vertical-scroll-proportion="0.0">
               <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cortexForum/cortexForum/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cortexForum/templates/gitbook/general/index.html">
+      <file leaf-file-name="recommend_finalresult.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cortexForum/templates/recommend/recommend_finalresult.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="141" column="248" selection-start-line="141" selection-start-column="245" selection-end-line="141" selection-end-column="248" />
+            <state vertical-scroll-proportion="-2.137931">
+              <caret line="60" column="17" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cortexForum/templates/gitbook/authen/index.html">
+      <file leaf-file-name="recommend_result.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cortexForum/templates/recommend/recommend_result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-4.9310346">
+              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="templates.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cortexForum/templates/gitbook/general/templates.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cortexForum/recommend/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-19.241379">
+              <caret line="411" column="33" selection-start-line="411" selection-start-column="33" selection-end-line="411" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cortexForum/templates/gitbook/general/models.html">
+      <file leaf-file-name="base.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cortexForum/recommend/base.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="39723" column="55" selection-start-line="39723" selection-start-column="55" selection-end-line="39723" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -171,13 +171,13 @@
         <option value="$PROJECT_DIR$/cortexForum/recommend/models.py" />
         <option value="$PROJECT_DIR$/cortexForum/templates/recommend/recommend_result_check.html" />
         <option value="$PROJECT_DIR$/cortexForum/templates/recommend/recommend_finalresult.html" />
-        <option value="$PROJECT_DIR$/cortexForum/templates/recommend/recommend_result.html" />
         <option value="$PROJECT_DIR$/cortexForum/recommend/views.py" />
         <option value="$PROJECT_DIR$/cortexForum/recommend/base.txt" />
         <option value="$PROJECT_DIR$/cortexForum/forum/urls.py" />
-        <option value="$PROJECT_DIR$/cortexForum/templates/base.html" />
         <option value="$PROJECT_DIR$/cortexForum/templates/gitbook/general/index.html" />
         <option value="$PROJECT_DIR$/cortexForum/templates/forum/wiki.html" />
+        <option value="$PROJECT_DIR$/cortexForum/templates/recommend/recommend_result.html" />
+        <option value="$PROJECT_DIR$/cortexForum/templates/base.html" />
       </list>
     </option>
   </component>
@@ -187,10 +187,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="491" />
-    <option name="y" value="308" />
+    <option name="x" value="150" />
+    <option name="y" value="24" />
     <option name="width" value="1295" />
-    <option name="height" value="478" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -217,7 +217,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -597,6 +596,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -864,8 +864,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="491" y="308" width="1295" height="478" extended-state="1" />
-    <editor active="false" />
+    <frame x="150" y="24" width="1295" height="744" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27104247" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -874,7 +874,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48267326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28037384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1157,13 +1157,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cortexForum/templates/recommend/recommend_finalresult.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.37037">
-          <caret line="89" column="68" selection-start-line="89" selection-start-column="68" selection-end-line="89" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cortexForum/recommend/music.data">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1178,40 +1171,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cortexForum/templates/recommend/recommend_result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6666665">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cortexForum/recommend/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2">
-          <caret line="411" column="33" selection-start-line="411" selection-start-column="33" selection-end-line="411" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cortexForum/recommend/base.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40199" column="0" selection-start-line="40199" selection-start-column="0" selection-end-line="40199" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cortexForum/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="49" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cortexForum/templates/gitbook/general/views.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1263,17 +1226,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cortexForum/forum/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="234" column="10" selection-start-line="234" selection-start-column="8" selection-end-line="234" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cortexForum/templates/forum/wiki.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.592592">
+        <state vertical-scroll-proportion="0.0">
           <caret line="203" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
           <folding />
         </state>
@@ -1281,7 +1236,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cortexForum/cortexForum/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.034483">
+        <state vertical-scroll-proportion="0.0">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
@@ -1292,6 +1247,59 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cortexForum/templates/recommend/recommend_finalresult.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.137931">
+          <caret line="60" column="17" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cortexForum/templates/recommend/recommend_result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.9310346">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cortexForum/recommend/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.241379">
+          <caret line="411" column="33" selection-start-line="411" selection-start-column="33" selection-end-line="411" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cortexForum/recommend/base.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39723" column="55" selection-start-line="39723" selection-start-column="55" selection-end-line="39723" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cortexForum/forum/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.931034">
+          <caret line="234" column="10" selection-start-line="234" selection-start-column="8" selection-end-line="234" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cortexForum/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3315508">
+          <caret line="133" column="30" selection-start-line="133" selection-start-column="25" selection-end-line="133" selection-end-column="30" />
+          <folding>
+            <element signature="n#if#0;n#!!top" expanded="false" />
+            <element signature="n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
