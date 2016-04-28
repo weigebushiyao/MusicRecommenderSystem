@@ -90,11 +90,100 @@ like_00={
     '다시 너를 (Liv)':'http://music.163.com/#/song?id=409646491',
 }
 
+user_type_recommend={}
 
+yue_chinese_song={
+    '红日':'http://music.163.com/#/song?id=115502',
+    '海阔天空':'http://music.163.com/#/song?id=347230',
+    '富士山下':'http://music.163.com/#/song?id=65766',
+    '人来人往':'http://music.163.com/#/song?id=65624',
+    '光辉岁月':'http://music.163.com/#/song?id=346576',
+    '沉默是金':'http://music.163.com/#/song?id=188204',
+    '只想一生跟你走':'http://music.163.com/#/song?id=189987'
+}
 
+europe_song={
+    'Emily-San Fermilin':'http://music.163.com/#/song?id=31517702',
+    'Talking to myself-SoySauce':'http://music.163.com/#/song?id=33984810',
+    'flood on the floor':'http://music.163.com/#/song?id=30512373',
+    'Rihanna-Clean Ban':'http://music.163.com/#/song?id=30967523',
+    'Silver lining-Hurts':'http://music.163.com/#/song?id=4112003',
+    'Invisible-Kid Astray':'http://music.163.com/#/song?id=32683910',
+    'The beautiful ones-Monarchy':'http://music.163.com/#/song?id=29307030',
+}
 
+japan_song={
+    'あなたに出会わなければ~夏雪冬花~':'http://music.163.com/#/song?id=560079',
+    'farewill':'http://music.163.com/#/song?id=22816399',
+    '最後のわがまま':'http://music.163.com/#/song?id=33346908',
+    '群青 ~album mix - remix -阿部芙蓉美':'http://music.163.com/#/song?id=22713385',
+    '君に贈る歌 ~Song For You -Che\'Nelle':'http://music.163.com/#/song?id=30590210',
+}
 
+dj_song={
+    'Rocky(Kaaze\'s Extended Mix)-  Tiësto / Kaaze':'http://music.163.com/#/song?id=33760006',
+    'Clap Your Hands (Original Mix)-David Guetta / Glowinthedark':'http://music.163.com/#/song?id=35253632',
+    'How Deep Is Your Love (Radio Edit)-Calvin Harris':'http://music.163.com/#/song?id=33668983',
+    'How We Party (Original Mix)-R3hab':'http://music.163.com/#/song?id=28870241',
+    'On My Mind (Radio Edit)-Don Diablo':'http://music.163.com/#/song?id=33054022',
+    'Savior (Original Mix) - Bassjackers':'http://music.163.com/#/song?id=29535451',
+}
 
+traditional_song={
+    'Johann Strauss II: Rosen aus dem Süden, Walzer, Op. 388-Wiener Philharmoniker':'http://music.163.com/#/song?id=35470320',
+    'Symphony No. 40 in G Minor, K. 550- I. Allegro molto-Wolfgang Amadeus Mozart':'http://music.163.com/#/song?id=27256788',
+    'Paganini – Moto perpetuo Op. 11 – M. Rabin 帕格尼尼:无穷动':'http://music.163.com/#/song?id=5105993',
+    'Gaspard De La Nuit, 3 Poèmes Pour Piano D\'après Aloysius Bertrand : Ondine (Remasterisé En 2010)':'http://music.163.com/#/song?id=22380369',
+    'Sonata for Piano and Violin in E minor, K.304, Temp di Menuetto':'http://music.163.com/#/song?id=26935413',
+    '梦里水乡':'http://music.163.com/#/song?id=5266956',
+    '春江花月夜-袁莎':'http://music.163.com/#/song?id=322470',
+    'Romance for Cello':'http://music.163.com/#/song?id=26500528',
+
+}
+electric_song={
+    'Go Time-Mark Petrie':'http://music.163.com/#/song?id=29717271',
+    'Shadows-Janji':'http://music.163.com/#/song?id=31830308',
+    'Faded (Instrumental)-Alan Walker':'http://music.163.com/#/song?id=36990267',
+    'Purple Passion -：Diana Boncheva':'http://music.163.com/#/song?id=2529472',
+    'Evolving - Ahrix':'http://music.163.com/#/song?id=32192216',
+    'Becoming a Legend - John Dreamer':'http://music.163.com/#/song?id=28283167',
+    'Daybreak (GoPro HERO3 Edit) - Overwerk':'http://music.163.com/#/song?id=28592966',
+    '七剑战歌 - ：川井憲次':'http://music.163.com/#/song?id=30474386',
+
+}
+
+mental_song={
+    'Everything Sucks - Dope':'http://music.163.com/#/song?id=17266068',
+    'You Spin Me Round (Like a Record) - Dope':'http://music.163.com/#/song?id=5054358',
+    'Blood-Stained (Give Me Your Body) - Project Pitchfork':'http://music.163.com/#/song?id=29412010',
+    'Hass Mich..Lieb Mich - Stalhman':'http://music.163.com/#/song?id=19180696',
+    'Deaf, Dumb and Blind - Godflesh':'http://music.163.com/#/song?id=4087708',
+    'Critical Acclaim (Album Version) - Avenged Sevenfold':'http://music.163.com/#/song?id=20503624',
+    'Bad Blood(黑客帝国) - ：Ministry':'http://music.163.com/#/song?id=5054967',
+}
+
+pure_song={
+    'Cold Winter':'http://music.163.com/#/song?id=33495597',
+    '白昼之夜 - 林隆璇':'http://music.163.com/#/song?id=116493',
+    '雨空 - α~pav':'http://music.163.com/#/song?id=139206',
+    'Righteous Path - Blazo':'http://music.163.com/#/song?id=5101648',
+    'Snowdream 雪之梦 - 班得瑞':'http://music.163.com/#/song?id=3951353',
+    'Mariage d\' manour 梦中的婚礼 理查德克莱德曼':'http://music.163.com/#/song?id=5038302',
+    'Exodus - 马克西姆.姆尔维察':'http://music.163.com/#/song?id=1696336',
+    'Nature\'s Path 自然小径':'http://music.163.com/#/song?id=1220787',
+
+}
+
+chinese_song={
+    '空谷幽兰 - 许巍':'http://music.163.com/#/song?id=25657380',
+    '东风破 - 周杰伦':'http://music.163.com/#/song?id=186018',
+    '江南 - 林俊杰':'http://music.163.com/#/song?id=108914',
+    '红颜 - 胡彦斌':'http://music.163.com/#/song?id=93213',
+    '红尘客栈 - 周杰伦':'http://music.163.com/#/song?id=25641368',
+    '烟花易冷 - 周杰伦':'http://music.163.com/#/song?id=185668',
+    '此生不换 - ':'http://music.163.com/#/song?id=86363',
+
+}
 
 # 维护一个用 dict 表示的 相似矩阵
 class ItemBasedCF(object):
@@ -216,10 +305,12 @@ def itemRecommend(request):
     itemcf = ItemBasedCF(file_path)
     itemcf.generateRandomSong()
     test=[1,2,3,4,5]
-
+    w=dict(zip(itemcf.randomsong,itemcf.randomsong_url))
+    #w={ keys:url_title[keys] for keys in itemcf.randomsong.keys()}
     context = {
-        'random_song':itemcf.randomsong,
-        'random_song_url':itemcf.randomsong_url,
+        #'random_song':itemcf.randomsong,
+        #'random_song_url':itemcf.randomsong_url,
+        'random_song':w,
         'test':test,
     }
     if request.method=='POST':
@@ -252,16 +343,74 @@ def itemRecommend(request):
         global know_way
         know_way=request.POST.get('know_way',-1)
 
+        global user_type_recommend
+        type_like=request.POST.getlist('type_like')
+        print type_like
+        type_like=[int(item) for item in type_like]
+        if 1 in type_like:
+            for music in random.sample(yue_chinese_song.keys(),3):
+                user_type_recommend[music]=yue_chinese_song[music]
+        if 3 in type_like:
+            for music in random.sample(europe_song.keys(),3):
+                user_type_recommend[music]=europe_song[music]
+        if 4 in type_like:
+            for music in random.sample(japan_song.keys(),3):
+                user_type_recommend[music]=japan_song[music]
+        if 5 in type_like:
+            for music in random.sample(dj_song.keys(),3):
+                user_type_recommend[music]=dj_song[music]
+        if 6 in type_like:
+            for music in random.sample(traditional_song.keys(),3):
+                user_type_recommend[music]=traditional_song[music]
+        if 7 in type_like:
+            for music in random.sample(electric_song.keys(),3):
+                user_type_recommend[music]=electric_song[music]
+        if 8 in type_like:
+            for music in random.sample(mental_song.keys(),3):
+                user_type_recommend[music]=mental_song[music]
+        if 9 in type_like:
+            for music in random.sample(pure_song.keys(),3):
+                user_type_recommend[music]=pure_song[music]
+        if 10 in type_like:
+            for music in random.sample(pure_song.keys(),3):
+                user_type_recommend[music]=pure_song[music]
+        if 11 in type_like:
+            for music in random.sample(electric_song.keys(),3):
+                user_type_recommend[music]=electric_song[music]
+        if 12 in type_like:
+            for music in random.sample(chinese_song.keys(),3):
+                user_type_recommend[music]=chinese_song[music]
+
+
+        print user_type_recommend
+
+
 
         global count
         count+=1
         userid=count
 
         with open(file_path, 'a') as f:
-
-            f.writelines(str(userid)+' '+itemcf.originsong[0]+' '+ 'None' + ' '+str(val1)+'\n')
-            f.writelines(str(userid)+' '+itemcf.originsong[1]+' '+ 'None' + ' '+str(val2)+'\n')
-            f.writelines(str(userid)+' '+itemcf.originsong[2]+' '+ 'None' + ' '+str(val3)+'\n')
+            if val1 not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[0]+' '+ 'None' + ' '+str(val1)+'\n')
+            if val2  not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[1]+' '+ 'None' + ' '+str(val2)+'\n')
+            if val3  not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[2]+' '+ 'None' + ' '+str(val3)+'\n')
+            if val4  not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[3]+' '+ 'None' + ' '+str(val4)+'\n')
+            if val5  not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[4]+' '+ 'None' + ' '+str(val5)+'\n')
+            if val6  not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[5]+' '+ 'None' + ' '+str(val6)+'\n')
+            if val7  not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[6]+' '+ 'None' + ' '+str(val7)+'\n')
+            if val8  not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[7]+' '+ 'None' + ' '+str(val8)+'\n')
+            if val9  not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[8]+' '+ 'None' + ' '+str(val9)+'\n')
+            if val10  not in (0,-1):
+                f.writelines(str(userid)+' '+itemcf.originsong[9]+' '+ 'None' + ' '+str(val10)+'\n')
         itemcf.trainset=itemcf.loadFile(file_path)
         '''
         userid=sorted(itemcf.trainset.keys())[-1]+1
@@ -280,7 +429,8 @@ def itemRecommend(request):
             'recommend_music':itemcf.result,
             'count':count,
             'test':test,
-            'user_graph_recommend':user_graph_recommend
+            'user_graph_recommend':user_graph_recommend,
+            'user_type_recommend':user_type_recommend,
         }
         return HttpResponseRedirect(reverse('recommend_result'))
         #return render(request,'recommend/recommend_finalresult.html',result)

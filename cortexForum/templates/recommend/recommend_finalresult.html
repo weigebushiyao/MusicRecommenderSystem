@@ -49,6 +49,29 @@
     {% endfor %}
     </table>
 
+    <hr/>
+
+    下面是根据 上下文+相关情景 进行的推荐
+
+    <table class="table table-striped">
+    <thead>
+        <tr>
+          <th>#</th>
+          <th>推荐音乐</th>
+          <th>可能的链接</th>
+        </tr>
+      </thead>
+
+    {% for music,url in user_type_recommend.items %}
+    <thread>
+    <tr>
+        <th>{{ forloop.counter }}</th>
+        <th>{{ music }}</th>
+        <th><a href="{{ url }}">点击试听</a></th>
+    </tr>
+    </thread>
+    {% endfor %}
+    </table>
 
 
 <form method="POST" role="form">
@@ -64,7 +87,7 @@
     <hr/>
 
     您对这次的推荐结果新鲜度是否满意:<br>
-    <label class="radio-inline"><input type="radio" name="" value="1">一星</label>
+    <label class="radio-inline"><input type="radio" name="fresh_rate" value="1">一星</label>
     <label class="radio-inline"><input type="radio" name="fresh_rate" value="2">二星</label>
     <label class="radio-inline"><input type="radio" name="fresh_rate" value="3">三星</label>
     <label class="radio-inline"><input type="radio" name="fresh_rate" value="4">四星</label>

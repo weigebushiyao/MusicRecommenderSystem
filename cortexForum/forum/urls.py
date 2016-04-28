@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^forum/node/(.*)/$',views.get_topic_by_node,name='get_topic_by_node'),
     url(r'^upvote/$',views.upvote,name='upvote'),
     url(r'user/(.*)/$',views.get_user_profile,name='get_user_profile'),
-    url(r'^wiki/$',views.get_wiki,name='get_wiki'),
+    url(r'^wiki/$',views.get_wiki,name='get_wiki')
 ]
