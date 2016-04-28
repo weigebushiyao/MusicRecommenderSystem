@@ -56,6 +56,7 @@
         <li><a href="#">话题</a></li> <!-- 这里应该指向主题，主页-->
           <li><a href="#">成员</a></li> <!-- 这里应该指向成员-->
           <li><a href="{% url 'get_wiki' %}">Wiki</a></li>
+        <li><a href="{% url 'item_recommend' %}">推荐系统</a></li>
 
 
 
@@ -127,9 +128,9 @@
     <!-- 头部已经完成，接下来就是看怎么划分剩下的模块了-->
 
 
-   <div class="row">
+  <div class="row">
         <div class="container">
-            <div class="col-md-9 col-md-offset-0">
+            <div class="col-md-7 col-md-offset-0">
 
                 {% block main_content %} {% endblock %}
             </div>

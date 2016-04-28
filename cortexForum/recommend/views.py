@@ -326,10 +326,11 @@ def itemRecommend(request):
 
 
         global user_graph_recommend
-        if gender==0 or birth_date==0:
-            user_graph_recommend={}
-        elif  birth_date==2:
+        user_graph_recommend={}
+        if gender==1 and birth_date==1:
             #global like_80
+            user_graph_recommend={}
+        elif birth_date==2:
             user_graph_recommend=like_70
         elif  birth_date==3:
             user_graph_recommend=like_80
@@ -344,6 +345,7 @@ def itemRecommend(request):
         know_way=request.POST.get('know_way',-1)
 
         global user_type_recommend
+        user_type_recommend={}
         type_like=request.POST.getlist('type_like')
         print type_like
         type_like=[int(item) for item in type_like]
@@ -467,6 +469,10 @@ def recommend_result(request):
                 'value6':Recommend.objects.filter(know_way=1).count(),
                 'value7':Recommend.objects.filter(know_way=2).count(),
                 'value8':Recommend.objects.filter(know_way=3).count(),
+                'value9':Recommend.objects.filter(fresh_rate__lte=2).count(),
+                'value10':Recommend.objects.filter(fresh_rate=3).count(),
+                'value11':Recommend.objects.filter(fresh_rate=4).count(),
+                'value12':Recommend.objects.filter(fresh_rate=5).count(),
         }
         return HttpResponseRedirect(reverse('recommend_result_check'))
     return render(request,'recommend/recommend_finalresult.html',result)

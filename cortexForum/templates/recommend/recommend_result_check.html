@@ -7,8 +7,9 @@
 
 {% block main_content %}
 
-    满意度{{ satisfy_rate }}
-    新鲜度{{ fresh_rate }}
+
+    <strong>以下为所有的数据分析情况</strong>
+    <hr/>
 
     {% for da in datetime %}
         <input type="hidden" id="myVar_{{ forloop.counter0 }}" name="variable" value="{{ da }}">
@@ -178,6 +179,51 @@ myChart.setOption(option1);
 
     myChart1.setOption(option2);
     </script>
+
+<div id="main3" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        var myChart3 = echarts.init(document.getElementById('main3'));
+      option4 = {
+    title : {
+        text: '推荐结果估算：新鲜度',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['<2','3','4','5']
+    },
+    series : [
+        {
+            name: '满意度查看',
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:{{ value9 }}, name:'<2'},
+                {value:{{ value10 }}, name:'3'},
+                {value:{{ value11 }}, name:'4'},
+                {value:{{ value12 }}, name:'5'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+    myChart3.setOption(option4);
+    </script>
+
 
 
 

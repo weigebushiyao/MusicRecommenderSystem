@@ -3,6 +3,7 @@
 {% block files %}
 <script type="text/javascript">
     $(document).ready(function() {
+  $('[data-toggle="popover"]').popover();
         $('#user_picture').hide();
         $('#type_select').hide();
 
@@ -23,6 +24,8 @@
 {% endblock %}
 
 {% block main_content %}
+
+
     <header class="intro-header" style="background-image: url('{%  static "images/main-background.jpg" %}')">
     <div class="container">
         <div class="row">
@@ -38,6 +41,21 @@
 
     </div>
 </header>
+
+<br><br>
+    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>推荐tips!</strong><br><br>
+
+    共有两种不同的推荐方式：<br><br>
+
+    默认为简单推荐,随机生成歌曲<br><br>
+
+    点击"完全推荐"按钮，可以获得更好的体验
+    </div>
+
+
+
     <hr/>
     <button type="button" class="btn btn-success" id="before">简单推荐</button>
     <button type="button" class="btn btn-success pull-right" id="next">完全推荐</button>
@@ -82,6 +100,7 @@
 
     <p><li>请选择您的出生日期</li></p>
     <select name="birth_date" class="form-control input-sm">
+        <option value="1">50后</option>
         <option value="2">60后</option>
   <option value="2">70后</option>
   <option value="3">80后</option>
@@ -184,5 +203,15 @@
 
 
 
+
+{% endblock %}
+
+{% block sidebar %}
+
+
+<button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" data-content=
+        "您的每一次测试都会让推荐的结果最终更加准确;感谢您的点击;有任何问题请联系 iamwanghz@gmail.com ,会在当日内回复">
+  推荐须知
+</button>
 
 {% endblock %}
