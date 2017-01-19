@@ -1,4 +1,7 @@
 # -*- coding:utf-8 -*-
+"""
+论坛的访问模块
+"""
 from django.conf.urls import url, include
 from . import views
 

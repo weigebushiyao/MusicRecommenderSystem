@@ -1,9 +1,11 @@
 # -*- coding:utf-8 -*-
+
+"""
+OOP，model 类声明
+"""
 from __future__ import unicode_literals
 
 from django.db import models
-
-# from ..authen import ForumUser  # 怎么引入？
 
 # Create your models here.
 
@@ -32,7 +34,6 @@ class NodeManager(models.Manager):
         query = self.get_queryset().filter(topic_count__gte=0). \
             order_by('-topic_count')
         return query
-        #
 
 
 class Node(models.Model):
@@ -52,12 +53,11 @@ class Node(models.Model):
 class TopicManager(models.Manager):
     '''
     进行主题的管理，返回相应的内容
-    这里要自己想一下所有的这些该怎么完成
     1. 返回所有的 topic (在主界面展示)
     2. 根据不同节点的 slug 返回对应的 topic
     3. 返回一个人创建的所有 topic
-    4. 返回一个人回复的所有 topic,不对，返回的是 reply 这里
-    5. 可能还有其他有用的
+    4. 返回一个人回复的所有 topic
+
     '''
 
     def get_all_topic(self):
@@ -79,8 +79,8 @@ class TopicManager(models.Manager):
 
     def get_all_topic_create_by_user(self, username=None):
         # foreignkey+onetoonefield
-        query = self.get_queryset().filter(author__user__username = username). \
-                select_related('node', 'author').order_by('-created_at')  # 按照创建时间排序
+        query = self.get_queryset().filter(author__user__username=username). \
+            select_related('node', 'author').order_by('-created_at')  # 按照创建时间排序
         return query
 
 
@@ -119,8 +119,7 @@ class ReplyManager(models.Manager):
     '''
 
     def get_all_replies_by_topic(self, topic_id):
-        # 我不太确定这里的 select_related 是否要选择作者
-        # select_related 看起来还不是任意的属性，比如说对该函数，就要用
+        # select_related 并不是任意的属性，比如说对该函数，就要用
         # Non-relational field given in select_related: 'content'. Choices are: topic, author
         query = self.get_queryset().select_related('topic', 'author'). \
             filter(topic__id=topic_id).order_by('updated_at')
@@ -136,10 +135,9 @@ class ReplyManager(models.Manager):
             filter(author__user__username=user_name).order_by('-updated_at')
         return query
 
+
 class Reply(models.Model):
     '''
-    一个回复应该有什么样的属性呢
-
     related_name:
     notify_reply:有一个消息提醒时牵涉到的 reply
     '''
@@ -160,7 +158,7 @@ class Reply(models.Model):
 
 class CollectManager(models.Manager):
     '''
-    显然返回的对象是根据用户 id/name 收集的所有帖子
+    返回的对象是根据用户 id/name 收集的所有帖子
     '''
 
     def get_all_collection_by_user(self, user_id):
@@ -172,7 +170,6 @@ class CollectManager(models.Manager):
 class Collect(models.Model):
     '''
     关于用户收集的所有帖子
-    应该不是太难，明天早上起来练手
     '''
     collect_user = models.ForeignKey('authen.ForumUser', on_delete=models.CASCADE,
                                      related_name='user_collect')
@@ -185,15 +182,13 @@ class Collect(models.Model):
 
 class NotificationManager(models.Manager):
     '''
-    很显然，Manager 的任务就是根据用户 id/name 获得所有的信息提醒
+   根据用户 id/name 获得所有的信息提醒
     '''
 
     def get_all_notifications_for_user(self, user_id):
         query = self.get_queryset().select_related('involved_topic', 'involved_user', 'trigger_user'). \
             filter(trigger_user__id=user_id).order_by('-occurence_time')
         return query
-
-        # 我感觉如果要分页的话还是要用它的 count() 来返回所有的数量？
 
 
 class Notification(models.Model):

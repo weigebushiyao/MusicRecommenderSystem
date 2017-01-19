@@ -1,11 +1,14 @@
 # -*- coding:utf-8 -*-
-
-from .models import ForumUser
+"""
+用户进行验证时的表单
+"""
 from django import forms
-from django.conf import settings  # 比引用文件要好多了
+from django.conf import settings
 from django.contrib.auth import authenticate
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout
+
+from .models import ForumUser
 
 # 方便选择
 error_messages = {
@@ -27,7 +30,6 @@ error_messages = {
 }
 
 
-# 我觉得这里自己还需要看一下从 models 建立 forms 有什么优势，否则太麻烦了
 class registrationForm(forms.Form):
     username = forms.CharField(help_text='请输入你的用户名，将会作为你的昵称', min_length=5, max_length=128)
     password = forms.CharField(help_text='请输入你的密码', min_length=5, max_length=128)
@@ -45,10 +47,10 @@ class registrationForm(forms.Form):
         model = ForumUser
         exclude = ['user', 'fortune', 'updated', ]
 
-    # 还要对每一个属性进行验证，用的是 clean__attribute 的方法
+    # 使用 clean__attribute 来对属性进行验证
 
     def clean_username(self):
-        # 不可能为空
+        # 不能为空
         username = self.cleaned_data.get('username')
         try:
             user = ForumUser.objects.get(user__username=username)
@@ -61,7 +63,7 @@ class registrationForm(forms.Form):
         return username
 
     def clean_email(self):
-        # 同样验证没有被注册过
+        # 验证是否被注册过
         email = self.cleaned_data.get('email')
         try:
             email = ForumUser.objects.get(user__email=email)
@@ -79,7 +81,6 @@ class registrationForm(forms.Form):
 
     def save(self):
         # save函数不用 Super(),默认的保留关键字 commit=True
-        # 我这里确实没看懂它为什么最后还要加一个 .set_password()
         user = super(registrationForm, self).save()
         return user
 
@@ -92,34 +93,34 @@ class loginForm(forms.Form):
                                help_text=u'请输入密码',
                                error_messages=error_messages.get('password'))
 
-    # 对于 clean ，需要重载
     def __init__(self, *args, **kwargs):
 
         super(loginForm, self).__init__(*args, **kwargs)
-        self.helper=FormHelper()
-        self.helper.form_class='form-horizontal'
-        self.helper.label_class='col-lg-2'
-        self.helper.field_class='col-lg-8'
-        self.helper.layout=Layout(
-            'username',
-            'password',
+        self.helper = FormHelper()
+        self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-lg-2'
+        self.helper.field_class = 'col-lg-8'
+        self.helper.layout = Layout(
+                'username',
+                'password',
 
         )
 
+    # 重载 clean 方法
     def clean(self):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         if user is None:
             raise forms.ValidationError(u'用户名或密码不正确')
-        elif not user.is_active:  # 不是一个函数，而是一个 bool 值
+        elif not user.is_active:
             raise forms.ValidationError(u'该用户已被管理员设置为未激活状态')
 
         return self.cleaned_data
 
 
+# 重新设置密码
 class settingpasswordForm(forms.Form):
-    # 如果密码没有找回
     password_old = forms.CharField(min_length=4, max_length=128,
                                    help_text=u'请输入之前的密码')
 
@@ -130,7 +131,6 @@ class settingpasswordForm(forms.Form):
                                       error_messages=error_messages.get('password'))
 
     def __init__(self, *args, **kwargs):
-        # 想象看 __init__ 都能做什么
         self.user = kwargs.pop('user', None)
         super(settingpasswordForm, self).__init__(*args, **kwargs)
 
@@ -146,5 +146,3 @@ class settingpasswordForm(forms.Form):
             raise forms.ValidationError(u'两次密码不统一')
         return self.cleaned_data
 
-
-        # 如果好我还想加上记住的功能

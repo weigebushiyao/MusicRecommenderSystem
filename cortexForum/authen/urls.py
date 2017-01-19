@@ -1,5 +1,9 @@
 # -*- coding:utf-8 -*-
+"""
+用正则来匹配访问的 url 路径
+"""
 from django.conf.urls import url, include
+
 from . import views
 
 urlpatterns = [

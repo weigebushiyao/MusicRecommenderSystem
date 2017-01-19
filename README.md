@@ -58,10 +58,11 @@ sudo apt-get install python-dev,mysqlclient-dev,python-mysqldb,libjpeg-dev
 create database cortexForum CHARACTER SET utf8 COLLATE utf8_bin;
 ```
 创建数据库并设置为 utf-8 编码格式以支持中文
-3. 执行
+
+4. 执行11111111111111111111
 ```
 python manage.py makemigrations
 
 python manage.py migrate
 ```
-4. 执行`python manage.py runserver`运行
+5. 执行`python manage.py runserver`运行

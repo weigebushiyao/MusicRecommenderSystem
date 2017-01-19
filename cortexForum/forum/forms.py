@@ -1,4 +1,7 @@
 # -*- coding:utf-8 -*-
+"""
+验证表单
+"""
 from django import forms
 from django.conf import settings
 
@@ -23,6 +26,7 @@ class CreateForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(CreateForm, self).__init__(*args, **kwargs)
     '''
+
     def clean_title(self):
         title = self.cleaned_data.get('title')
         if title in settings.LAW_RESERVED:
@@ -30,14 +34,14 @@ class CreateForm(forms.Form):
         return title
 
     def clean_content(self):
-        '''
-        content = self.cleaned_data.get('content')
-        for str in settings.LAW_RESERVED:
-            if content.find(str):
-                raise forms.ValidationError(u'内容不合法')
-        '''
+        # content = self.cleaned_data.get('content')
+        # for str in settings.LAW_RESERVED:
+        #     if content.find(str):
+        #         raise forms.ValidationError(u'内容不合法')
+
         return self.cleaned_data.get('content')
 
+
 class ReplyForm(forms.Form):
-    content=forms.CharField(widget=forms.Textarea,
-                            error_messages=error_messages.get('content'))
+    content = forms.CharField(widget=forms.Textarea,
+                              error_messages=error_messages.get('content'))

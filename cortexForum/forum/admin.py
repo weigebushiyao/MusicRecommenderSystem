@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 
-# Topic,Reply,……这些等等都需要用 admin 来优化显示
+"""
+Topic,Reply,……需要用 admin 来优化显示
+"""
 
 from django.contrib import admin
 from .models import Node,Topic,Reply,Notification,Collect
