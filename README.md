@@ -18,16 +18,9 @@
 
 如果说是还有什么不足的话：
 
-* 自己虽然已经尽量按照 [Two scopes of Django](https://book.douban.com/subject/24246865/) 的说明来进行代码项目的写法，但还是没有用 CBVS 来精简表达，主要用的还是 FBVS
+* 自己虽然已经尽量按照 [Two scopes of Django](https://book.douban.com/subject/24246865/) 的说明来进行代码项目的写法，但还是没有用 CBVS 来精简表达，主要用的还是 FBVS。
 
-* [TDD-Pytthon web development](https://book.douban.com/subject/26640135/) 是讲解 TDD 非常好的一本书，但是你懂的……，开发人员写测试用例实在太痛苦了……，以后有机会再补上吧……(我知道这是不对的^)
-
-在整个开发过程中不得不再次感谢 Django 的开发人员为我们提供了如此丰富的资源，让以写 one-line 为荣耀的 Python 也有拿得出来和其他开发语言一比高下的框架，不过 template tags 是什么情况！！！
-
-前端用的就是 bootstrap 啦，本来想让 [@lonelyCheng](https://github.com/lonelycheng)
- 帮忙优化一下的，但他最近在搞 Node.js^^，好吧，论全栈工程师的养成及其他
-
-在开发过程中没有强制的代码 review 和版本管理，可能在一开始还可以写出不错的代码，但随着进度加快，压力增大，代码的质量只会是悬崖式坠落，能跑起来的代码和能在服务器上稳定运行的代码完全是两个不同的概念。
+前端用的就是 bootstrap ，本来想让 [@lonelyCheng](https://github.com/lonelycheng)帮忙优化一下的，但他最近在搞 Node.js^^。
 
 自己决定将这个项目作为一个长期维护的对象，接下来在不同的分支中添加不同的功能，比如 Elastic 什么的。欢迎大家提出各种 issur 和 PR，有问题的话也可以通过邮件联系哈: iamwanghz@gmail.com
 
@@ -46,23 +39,23 @@ upvote 和 downvote 机制
 
 ####安装方法:
 
-1. 对 *nix 系统，请直接执行 `source venv/bin/activate` 以获得对应的 Python 环境
-2. 执行以下命令来安装依赖(适用于 Ubuntu 14.04 LTS)：
+- 对 *nix 系统，请直接执行 `source venv/bin/activate` 以获得对应的 Python 环境
+- 执行以下命令来安装依赖(适用于 Ubuntu 14.04 LTS)：
 ```
 sudo apt-get install python-dev,mysqlclient-dev,python-mysqldb,libjpeg-dev
 
 ```
 
-3. 在 `settings.py` 中设置好 mysql 的端口、用户名、密码(demo 中以 root:mysql 来作为例子),并执行
+- 在 `settings.py` 中设置好 mysql 的端口、用户名、密码(demo 中以 root:mysql 来作为例子),并执行
 ```
 create database cortexForum CHARACTER SET utf8 COLLATE utf8_bin;
 ```
 创建数据库并设置为 utf-8 编码格式以支持中文
 
-4. 执行11111111111111111111
+- 执行以下语句
 ```
 python manage.py makemigrations
 
 python manage.py migrate
 ```
-5. 执行`python manage.py runserver`运行
+- 执行`python manage.py runserver`运行应用
