@@ -37,7 +37,7 @@ upvote 和 downvote 机制
 
 ---
 
-####安装方法:
+#### 安装方法:
 
 - 对 *nix 系统，请直接执行 `source venv/bin/activate` 以获得对应的 Python 环境
 - 执行以下命令来安装依赖(适用于 Ubuntu 14.04 LTS)：
