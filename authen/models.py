@@ -12,7 +12,7 @@ from django.utils import timezone
 
 class ForumUser(models.Model):
     user = models.OneToOneField(User)
-    avatar = models.ImageField(upload_to='/images', blank=True)
+    avatar = models.ImageField(upload_to='images', blank=True)
     introduce = models.CharField(max_length=128, blank=True)
     fortune = models.IntegerField(default=42)  # 财富值
     updated = models.DateTimeField(default=timezone.now())

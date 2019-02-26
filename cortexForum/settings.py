@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'cortexForum',
         'STORAGE_ENGINE': 'MyISAM / INNODB / ETC',
         'USER': 'root',
-        'PASSWORD': 'mysql',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
