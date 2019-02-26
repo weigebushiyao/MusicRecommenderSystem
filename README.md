@@ -1,3 +1,35 @@
+
+#### What is it ?
+
+* This is a `recommendation system` based on Django
+
+* Mainly there are 3 algorithms uses:
+
+a. `UserCF`(User-based Collaborative Flitering)
+
+b. `ItemCF`(Item-based Collaborative Filtering)
+
+c. `LFM`(Latent Factor Model)
+
+This project mainly uses `ItemCF` as the recommend algorithm.
+
+#### Project
+
+I follow the traditional MVC(Model/View/Control) architecture
+
+
+#### Data Visualization
+
+Google's highcharts library
+
+![data_visualization](static/images/data_visualization.png)
+
+
+![recommend_item](static/images/recommend_item.png)
+
+
+![recommend_result](static/images/recommend_result.png)
+
 一个结合算法的理论性和工程的健壮性的项目
 
 基于 Hadoop 的音乐推荐系统的实现
