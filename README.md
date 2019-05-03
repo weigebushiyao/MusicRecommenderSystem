@@ -34,6 +34,22 @@ The recommend principle is **If more people like item A and item B at the same t
 
 In short, the basic similarity is calculated by a complex formula. You can the the implementation of codes in [here](recommend/recommend/views.py#L216)
 
+```
+        for userID, items in trainset.items():
+            for i in items:
+                counter.setdefault(i, 0)
+                counter[i] += 1
+                simitems = simMatrix.setdefault(i, {})
+                for j in items:
+                    if not i == j:
+                        simitems.setdefault(j, 0)
+                        simitems[j] += 1
+
+        for i, simitems in simMatrix.items():
+            for j in simitems:
+                simMatrix[i][j] /= math.sqrt(counter[i] * counter[j])
+```
+
 ---
 
 ##### 对数据的抓取
