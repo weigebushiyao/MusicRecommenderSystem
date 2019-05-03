@@ -185,7 +185,7 @@ chinese_song={
 
 }
 
-# 维护一个用 dict 表示的 相似矩阵
+# maintain the matrix represented by dict
 class ItemBasedCF(object):
     def __init__(self, trainFilename):
         self.trainset = self.loadFile(trainFilename)
@@ -214,7 +214,9 @@ class ItemBasedCF(object):
         return content
 
     def calSimilarity(self):
-        # 计算矩阵相似度
+        """
+        calculate the complexity
+        """
 
         trainset = self.trainset
         counter = {}
@@ -255,7 +257,7 @@ class ItemBasedCF(object):
 
 
     def calRecommendation(self):
-        #  进行 K,N 推荐
+        #  recommend K,N
         simMatrix = self.simMatrix
         trainset = self.trainset
         K = self.K
@@ -297,7 +299,6 @@ class ItemBasedCF(object):
 
 
     def recall(self):
-        # 计算召回率
         pass
 
 
@@ -328,7 +329,6 @@ def itemRecommend(request):
         global user_graph_recommend
         user_graph_recommend={}
         if gender==1 and birth_date==1:
-            #global like_80
             user_graph_recommend={}
         elif birth_date==2:
             user_graph_recommend=like_70
@@ -440,10 +440,7 @@ def itemRecommend(request):
     return render(request, 'recommend/recommend_result.html', context)
 
 def recommend_result(request):
-
-
-    # 在这里的部分怎样写比较合适尼？
-    print 123
+    
     if request.method=='POST':
         satisfy_rate=request.POST.get('satisfy_rate')
         fresh_rate=request.POST.get('fresh_rate')

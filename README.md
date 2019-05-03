@@ -15,14 +15,13 @@ This project mainly uses `ItemCF` as the recommend algorithm.
 
 #### Project
 
-I follow the traditional MVC(Model/View/Control) architecture
-
+Following the traditional MVC(Model/View/Control) architecture
 
 #### Data Visualization
 
 Google's highcharts library
 
-![data_visualization](static/images/data_visualization.png)
+![data_visualization](static/images/data_visualization.jpg)
 
 
 ![recommend_item](static/images/recommend_item.png)
@@ -30,20 +29,10 @@ Google's highcharts library
 
 ![recommend_result](static/images/recommend_result.png)
 
-一个结合算法的理论性和工程的健壮性的项目
 
-基于 Hadoop 的音乐推荐系统的实现
+The recommend principle is **If more people like item A and item B at the same time, then item A and item B have obvious similarities.**
 
-* 算法
-* 收集数据
-* 工程项目
-* 算法理论
-
-推荐系统的算法在工业生产中主要采用的是 协同过滤算法(Collaborative Filter),包括两种：基于用户的协同过滤算法(UserCF) 和 基于物品的协同过滤算法(ItemCF)。基于用户的可以大概理解为 “你所关注人的喜好也就是你的喜好”， 而基于物品的则可以认为是“有更多的人同时喜欢物品A和物品B，那么物品A和物品B就有比较明显的相似度”
-
-同时还有非常热门的一种推荐方法是采用 LFM(隐语义模型，latent factor model) 来进行，需要自定义大量的参数和比重来预测用户的行为数据，同时对数据库的存储量要求比较高。 在此基础上还有 基于上下文相关的推荐(context-based)，和 基于第三方社交网络(social network)的推荐 等等。 在一开始的实现过程中我决定采用 UserCF+LFM+ItemCF 的方式来结合进行推荐，但最后的结果不能令人满意。因为本身所建立的 follow/unfollow 机制在没有经过大量时间和大量数据积累的情况下很难做到定向积累，而用第三方社交网络的话 SDK 开发并不难(参见 新浪SDK),但很难说服人们将自己的社交网络账号和一个非权威性的官方网站绑定在一起。实际上基于 UserCF 的算法也主要用在社交网络里，对像电商这样很难积累起用户关系的商业模式并不适用。所以UserCF 至于 LFM 的考虑，自己在进行系统设计的时候考虑并实现了 点赞/反对(upvote/downvote) 机制，但用户对于点赞和反对具有很大的随意性，并且非主题依据，很难对应做出相对性的推荐结果出来。所以LFM
-
-所以自己最终选择 ItemCF 来作为自己主要算法的实现方向。 movielens数据集 是非常出名的一个对电影打分的数据集，该数据集的每一条都包含了用户对某一特定影片的打分。因为 MarkDown 格式在公式显示上的弱势，在这里就不对理论做过多的解释(用 Latex 写完公式之后会添加)。简而言之就是用 Python 实现了 基本的相似度计算，对热门物品有惩罚作用的 IUF 算法， 和 矩阵归一化的算法 ，得出一个合适的 K、N 值，最后用 matplotlib 绘图展示。
+In short, the basic similarity is calculated by a complex formula. You can the the implementation of codes in [here](recommend/recommend/views.py#L216)
 
 ---
 
@@ -73,27 +62,14 @@ Google's highcharts library
 
 自己后端采用 Django，前端用 Bootstrap。在实现的过程中 遵循了 《Two scopes of Django:The Best Practice》的最佳实践指南，使用 form 而非 request.POST 的方式来处理前后端交互， 做到了标准的 MVC 架构，同时避免 Django-bootstrap3 或者 crispy_forms 这样的表单展示插件， 后端传送给前端纯粹的 json 数据，使 逻辑和展示 分离开来。在开发的过程中则根 据 《Test Driven Development:Python Web》的建议方式，在 authen 模块里用 TDD 的方式进行开发，编写了足够多的测试用例来保证程序的健壮性。
 
-但在实现之后在和群里的讨论过程中，我得到的一个消息，或者说建议，是到目前为止国内还没有很好利用第三方社交网络来进行推荐的例子，而用 LFM 进行推荐则是一个大公司事业部数个项目组花费几个季度的时间才能达到一个差不多的效果， 对于本科毕设而言，最好是专注于实现一种算法。所以最后选择 ItemCF 作为自己的主攻方向。
-
 出于对测试数据的积累和用户数据量的考虑，我没有用 @login_required 必须要求登陆 才能参与推荐，而是对任意参与的用户都进行推荐。
 
-recommend_1.png
 
 1. 只对用户进行简单的推荐。我会从歌曲中随机抽出10首歌，来让用户进行打分。1-5星对应1-5分，而如果用户选择了不感兴趣，那么 该项就不会计入到最终的推荐结果中
 
-recomend_2.png
-
-用户点击 完全推荐按钮 后，就会在简单推荐的基础上增加 用户画像、热门选择、上下文相关 等内容，从而进行更精确化的推荐。
-
-毫无疑问的一点是对于音乐的喜好与用户所成长的年代有明显的相关关系，对于 70后 来讲，推荐的更多是 邓丽君/小虎队/刘德华 等港台歌手， 80/90后 的学生时代伴随着周杰伦长大，而对于00后女性，对韩国音乐的偏好性更明显。在这种情况下我们只需要维护一个合适分类的数据库，从中随机进行抽选，就能够使用户对推荐结果产生足够的满意度 (而之后依据用户对歌曲的评分再进行 ItemCF 推荐是另一个话题了)
-
-与此同时自己还提供了一个 checkbox 来让参与者选择知道这个网站的途径，当时做这样的选择的时候主要目的是根据 增长黑客(Growth Hacker) 的思想来让自己的推广更有效率。但考虑到网站本身的性质，最后的结果也只能作为一个参考。
-
-但也存在很多歌曲是跨越时代、性别和年龄的，经典的钢琴曲在全世界都能吸引粉丝，纯音乐不分国籍都能引发人们的共鸣。因此我们 又要根据用户所喜欢的类别来选择对应歌曲， 大略划分为了 粤语/国语/……古典/电子/……清新/大气 12种类别， 同时又允许用户根据 当下的心情(context-based,上下文情景相关) 来选择，包括 激情/浪漫/伤感/怀旧 4种类型。
 
 在用户选择了不同的推荐方式之后，系统就会依据用户对不同歌曲的喜好来进行推荐。同时允许用户对此次的推荐结果进行打分。
 
-recommend_3.png
 
 推荐系统有许多的测试指标，包括在第一部分测试 ItemCF 中所采用的 准确率(precision)、召回率(recall)和覆盖率(coverage) 等三个指标。 但考虑到最终要面向用户，所以我选择了 满意度(satisfy_rate) 和 新鲜度(fresh_rate) 两个指标。完全由用户在结果完成后进行评价，之后再进行有针对性的评价。
 
@@ -104,10 +80,6 @@ recommend_4.png
 
 其次还有对推荐满意度和新鲜满意度的 饼形图展示，对于所有满意度<2 的比例，都认为是不达标的，和打分为 3,4,5 的作为因素来进行绘图。可以直接看出推荐效果的好坏(和时间的关系不大,而是将整体的打分标准都计入考虑) 最后是访问来源的绘图。通过类似 custom-pies 这样的图片，可以比饼形图更形象展示用户来源。
 
-工作量问题
 
-工作量问题： 1. 理论性:考虑了 ItemCF 的实现以及优化
-
-2. 工程性:自己写了一个脚本 来统计自己所写的代码量。去掉 .idear、.git、.pyc(Python 的解析文件) 等不相关目录后共有 6225 行。
-
-自己选用 阿里云ECS 来作为自己的服务器,使用 Nginx+Gunicorn+Supervisor 来处理请求 
+Deploy :
+Nginx+Gunicorn+Supervisor 
