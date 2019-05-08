@@ -54,29 +54,26 @@ In short, the basic similarity is calculated by a complex formula. You can the t
 
 ##### Crawl Data
 
-推荐系统中一个非常重要的部分就是 冷启动(cold start),从无到有构造一个推荐的数据积累
-
-利用 requests+PhamtomJs+Selenium 构建了一个多线程爬虫，爬取了百度音乐、酷狗音乐、酷我音乐(网易云音乐用 API 直接读取 json 格式数据后进行处理)上5W+个专辑， 经过 数据清洗(去掉已经是死链的 url 和 歌曲数量少于5条的专辑)后，拿到了总共 47222 个共 637404条 的数据量。
-
 A very important part of the recommender system is to get accumulation data from scratch called `cold start`.
 
 The project used `requests` to build a multi-threaded crawler that extractedf Baidu music, kugou music, kuwoo music. After data cleaning (Removing the urls that are already dead links, there was a total of 100000 records used as train dataset.
 
 Each music record includes `UserID, music, url, rating`. And the rating is based on the number of comments.
 
+```
 `0-500` : `1 point`
 `500-1000` : `2 points`
 `1000-2000` : `3 points`
 `2000-3000` : `4 points`
-`3000-more` : `5 points`(e.g. most popular)
-
+`3000-more` : `5 points`(i.e. most popular)
+```
 ---
 
 ##### Build real website
 
-BackEnd: `Django`
-FrontEnd: `Bootstrap + JQuery(Ajax)`
-Deploy :
+- BackEnd: `Django`
+- FrontEnd: `Bootstrap + JQuery(Ajax)`
+- Deploy :
 `Nginx+Gunicorn+Supervisor`
 
 <!-- 自己后端采用 Django，前端用 Bootstrap。在实现的过程中 遵循了 《Two scopes of Django:The Best Practice》的最佳实践指南，使用 form 而非 request.POST 的方式来处理前后端交互， 做到了标准的 MVC 架构，同时避免 Django-bootstrap3 或者 crispy_forms 这样的表单展示插件， 后端传送给前端纯粹的 json 数据，使 逻辑和展示 分离开来。在开发的过程中则根 据 《Test Driven Development:Python Web》的建议方式，在 authen 模块里用 TDD 的方式进行开发，编写了足够多的测试用例来保证程序的健壮性。
